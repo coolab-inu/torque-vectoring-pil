@@ -14,7 +14,7 @@
       }
     };
   </script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
 
   <style>
     :root {
@@ -39,6 +39,8 @@
       background-color: var(--bg);
       color: var(--text);
       line-height: 1.72;
+      word-break: keep-all;
+      overflow-wrap: break-word;
     }
 
     /* 상단 고정 내비게이션 */
@@ -65,6 +67,12 @@
     }
 
     nav a:hover { color: #ffffff; text-decoration: underline; }
+
+    @media (max-width: 760px) {
+      nav { justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; gap: 16px; scrollbar-width: none; }
+      nav::-webkit-scrollbar { display: none; }
+      nav a { white-space: nowrap; flex: none; }
+    }
 
     /* 상단 학술 헤더 (좌측 학교마크 · 중앙 제목/저자 · 우측 랩실마크) */
     header {
@@ -136,6 +144,11 @@
       width: 175px;
       height: auto;
       object-fit: contain;
+      /* white plate like the university mark on the left, so the lab logo reads on the navy header */
+      background: #ffffff;
+      padding: 8px 12px;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
     }
 
     @media (max-width: 860px) {
@@ -199,13 +212,13 @@
     /* 그리드 및 정보 박스 */
     .two-col {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
       gap: 20px;
     }
 
     .three-col {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
       gap: 16px;
     }
 
@@ -338,7 +351,7 @@
     /* KPI 카드 */
     .kpi-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
       gap: 16px;
       margin-bottom: 22px;
     }
@@ -475,9 +488,9 @@
 
       <!-- 우측 상단: COOL 랩실 마크 (logo_cool.png 우선 표시, 미업로드 시 투명 SVG 자동 표시) -->
       <div class="header-logo-right">
-        <img src="logo_cool.png" alt="Control & Observer Optimization Lab."
-             onerror="this.style.display='none'; document.getElementById('coolSvgFallback').style.display='block';" />
-        <svg id="coolSvgFallback" style="display:none;" viewBox="0 0 260 95" width="180" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <a href="https://coolab-inu.github.io/" title="COOL Lab 홈페이지"><img src="logo_cool.png" alt="Control & Observer Optimization Lab."
+             onerror="this.style.display='none'; document.getElementById('coolSvgFallback').style.display='block';" /></a>
+        <svg id="coolSvgFallback" style="display:none;" viewBox="0 0 260 95" width="180" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="coolGrad" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%" stop-color="#14b8a6"/>
@@ -543,7 +556,7 @@
 
       <!-- 그림 1 Flowchart SVG -->
       <div class="diagram-wrap">
-        <svg viewBox="0 0 920 215" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 920 215" width="100%" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
               <path d="M 0 1 L 10 5 L 0 9 z" fill="#181b20"/>
@@ -747,7 +760,7 @@
 
       <!-- PIL 연동 다이어그램 -->
       <div class="diagram-wrap">
-        <svg viewBox="0 0 960 205" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 960 205" width="100%" xmlns="http://www.w3.org/2000/svg">
           <!-- 좌측: HOST PC 블럭 -->
           <rect x="15" y="15" width="345" height="175" rx="14" fill="#ffffff" stroke="#005bb5" stroke-width="2.2"/>
           <text x="187.5" y="42" text-anchor="middle" font-size="13.5" font-weight="800" fill="#005bb5">HOST PC (MATLAB / Simulink 플랜트)</text>
@@ -912,7 +925,7 @@
     </section>
 
     <footer>
-      인천대학교 전자공학부 &amp; 정보통신공학과 &nbsp;|&nbsp; Control &amp; Observer Optimization Lab. (지도교수: 유세선 교수님)
+      인천대학교 전자공학부 &amp; 정보통신공학과 &nbsp;|&nbsp; <a href="https://coolab-inu.github.io/" style="color:inherit">Control &amp; Observer Optimization Lab.</a> (지도교수: 유세선 교수님)
     </footer>
   </div>
 
