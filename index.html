@@ -109,7 +109,7 @@ h1{font-family:var(--font-display);font-stretch:112%;font-weight:700;font-size:c
 .stat + .stat{padding-left:20px;border-left:1px solid var(--rule)}
 .stat dt{font-size:13.5px;color:var(--ink-2)}
 .stat dd{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin-top:6px}
-.stat .fig{font-family:var(--font-display);font-stretch:108%;font-weight:700;font-size:1.9rem;line-height:1.1;letter-spacing:-.01em;color:var(--gain-ink);font-variant-numeric:tabular-nums}
+.stat .fig{font-family:var(--font-display);font-stretch:108%;font-weight:700;font-size:1.9rem;line-height:1.1;letter-spacing:-.01em;color:var(--ink);font-variant-numeric:tabular-nums}
 .stat.lead .fig{font-size:clamp(3rem,6vw,4rem);line-height:1}
 .stat .from{font-family:var(--font-data);font-size:13px;color:var(--ink-2);white-space:nowrap}
 .from .off,.t-off{color:var(--off-ink)}
@@ -190,7 +190,7 @@ mjx-container{color:inherit}
 .kpi + .kpi{padding-left:20px;border-left:1px solid var(--rule)}
 .kpi.off{--c:var(--off);--ci:var(--off-ink)}
 .kpi.on{--c:var(--on);--ci:var(--on-ink)}
-.kpi.gain{--c:var(--gain);--ci:var(--gain-ink)}
+.kpi.gain{--c:var(--gain);--ci:var(--ink)}      /* the figure in white (user); the rule above stays green */
 .kpi dt{font-size:13.5px;color:var(--ink-2);text-wrap:pretty}
 .kpi dd{margin-top:6px}
 .kpi .fig{display:block;font-family:var(--font-display);font-stretch:108%;font-weight:700;font-size:clamp(1.7rem,3vw,2.15rem);line-height:1.1;letter-spacing:-.01em;color:var(--ci);font-variant-numeric:tabular-nums}
